@@ -1,4 +1,4 @@
-# real-estate
+# Real Estate Price Trending Prediction in Boston
 Boston Real-Estate project for the Machine Learning class CS542 for the Spring 2018 semester.
 
 Over the last twenty years the the cost of living in the city of Boston has changed dramatically. Areas such as South Boston and the Seaport have gone from dangerous no-go zones to some of the most sought after properties in the area.
