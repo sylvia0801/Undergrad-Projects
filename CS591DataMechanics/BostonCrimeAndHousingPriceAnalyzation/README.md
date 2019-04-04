@@ -1,4 +1,4 @@
-# CS 591 Spring17 Project
+# Boston Crime and Housing Price Analyzation
 
 ### Group Members: [Xiaotong Niu](https://github.com/sylvia0801), [Po-Yu,Tseng](https://github.com/cybersoftintern)
 
