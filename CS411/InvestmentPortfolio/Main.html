@@ -1,0 +1,117 @@
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+<script type="text/javascript">
+// jquery.xdomainajax.js  ------ from padolsey
+
+jQuery.ajax = (function(_ajax){
+    
+    var protocol = location.protocol,
+        hostname = location.hostname,
+        exRegex = RegExp(protocol + '//' + hostname),
+        YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',
+        query = 'select * from html where url="{URL}" and xpath="*"';
+
+    function isExternal(url) {
+        return !exRegex.test(url) && /:\/\//.test(url);
+    }
+
+    return function(o) {
+
+        var url = o.url;
+
+        if ( /get/i.test(o.type) && !/json/i.test(o.dataType) && isExternal(url) ) {
+
+            // Manipulate options so that JSONP-x request is made to YQL
+
+            o.url = YQL;
+            o.dataType = 'json';
+
+            o.data = {
+                q: query.replace(
+                    '{URL}',
+                    url + (o.data ?
+                        (/\?/.test(url) ? '&' : '?') + jQuery.param(o.data)
+                    : '')
+                ),
+                format: 'xml'
+            };
+
+            // Since it's a JSONP request
+            // complete === success
+            if (!o.success && o.complete) {
+                o.success = o.complete;
+                delete o.complete;
+            }
+
+            o.success = (function(_success){
+                return function(data) {
+
+                    if (_success) {
+                        // Fake XHR callback.
+                        _success.call(this, {
+                            responseText: data.results[0]
+                        }, 'success');
+                    }
+
+                };
+            })(o.success);
+
+        }
+        return _ajax.apply(this, arguments);
+    };
+
+})(jQuery.ajax);
+
+
+//the above code is for getting past the cross domain limitation from http://stackoverflow.com/questions/32587995/pull-html-element-from-cross-domain
+
+
+</script>
+
+<body>
+    <h1>
+        <textarea id="writeTicker">APPL</textarea>
+        <button id="findTickerButton" onclick="findTickerButtonClicked()">Click me</button><br>
+        <label>Symbol </label>
+        <label id="symbol">unset</label>
+    </h1>
+</body>
+
+<script>
+function findTickerButtonClicked(){
+    $.ajax({
+    url: "http://www.webservicex.net/stockquote.asmx/GetQuote?symbol=" + document.getElementById("writeTicker").value,
+    type: 'GET',
+    success: function(res) {
+        var text = res.responseText.replace(/&gt;/g," ").replace(/&lt;/g," ");
+        //var arr = text.split("Symbol")
+
+        function makeElementFor(seperator) {
+            var arr = text.split(seperator)
+            var value = arr[1].replace(" /"," ")
+            var element = ("<p>" + seperator + ": " + value + "</p>")
+            return element
+        }
+        
+        
+
+        document.write(makeElementFor("Symbol") + "<br>" +
+                       makeElementFor("Last") + "<br>" +
+                       makeElementFor("Date") + "<br>" +
+                       makeElementFor("Time") + "<br>" +
+                       makeElementFor("Change") + "<br>" +
+                       makeElementFor("Open") + "<br>" +
+                       makeElementFor("High") + "<br>" +
+                       makeElementFor("Low") + "<br>" +
+                       makeElementFor("Volume") + "<br>" +
+                       makeElementFor("MktCap") + "<br>" +
+                       makeElementFor("PreviousClose") + "<br>" +
+                       makeElementFor("PercentageChange") + "<br>" +
+                       makeElementFor("AnnRange") + "<br>" +
+                       makeElementFor("Earns") + "<br>" +
+                       makeElementFor("P-E") + "<br>" +
+                       makeElementFor("Name") + "<br>")
+    }
+    });
+}
+</script>

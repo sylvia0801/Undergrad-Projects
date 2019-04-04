@@ -1,0 +1,76 @@
+link(href='http://localhost:3000/stylesheets/index.css', rel='stylesheet')
+
+
+block content
+    h3(alignment="center")= "Find Stock Ticker"
+    form#form_add_ticker(name="ticker", method="post",
+    action="/")
+
+        div(class="inputContainer")
+            div(class="tickerSubmitContainer")
+                span(class="tickerLabel") Ticker
+                span &nbsp;
+
+                -var tickerName = "";
+                -for (var element in data)
+                    -if (element == 'tickerInfo')
+                        -for (var symbol in data[element])
+                            -if (symbol == 'Symbol')
+                                -tickerName = data[element][symbol];
+                        input#input_name( value = '#{tickerName}' , type="text", placeholder="ticker", name="tickerInput")
+
+                button#submit_ticker(type="submit") submit
+
+    div(class="loginQuizContainer")
+        -for(var element in data)
+
+            if element == 'username'
+                if data[element] == ""
+                    div(class="loginContainer")
+                        form#form_login(name="login", method="post",
+                        action="/login")
+
+                            div(class="labelTextField")
+                                span(class="loginContainerLabel") Username
+                                input#input_name(type="text", placeholder="Username", name="username")
+
+                            div(class="labelTextField")
+                                span(class="loginContainerLabel") Password
+                                input#input_name(input type="password", placeholder="Password", name="password")
+
+                            button#submit_login(class="loginButton", type="submit") submit
+                else
+                    form#form_login(name="logout", method="post",
+                    action="/logout")
+                        p(class="welcomeLabel") Welcome #{data[element]}
+                        button#logout(type="submit") log out
+
+        div(class="quizContainer")
+            -for(var element in data)
+                -if (element == 'currentQuestion')
+                    p(class = "questionLabel") #{data[element]}
+
+
+                    // element === 'currentQuestion'.
+                    // typeof data[element].answers === 'array'.
+                    // data[element].answers[0] === First set of answers.
+                    // answer === Key of Answers objects
+
+                -if (element == 'currentAnswers')
+                    form#form_questionaire(name="questions", method="post", action="/response")
+                        select(name="options")
+                            each i, answer in data[element]
+                                option(value=answer) #{i}
+                        button#submit_answer_ticker(type="submit") submit
+
+                -if (element == "image")
+                    -if (data[element] != "")
+                        img(src='http://localhost:3000/' + '#{data[element]}', class="image")
+
+    div(class="tickerInfoContainer")
+        -for(var element in data)
+            -if (element == 'tickerInfo')
+                -var tickerInfo = data[element]
+                -for(var tickerElement in tickerInfo)
+                    if tickerElement != '_id' && tickerElement != ''
+                        p(class="infoLabel") #{tickerElement}: #{data[element][tickerElement]}

@@ -1,0 +1,20 @@
+
+all values are strings since N/A needs to be an acceptable value
+{ Symbol: 'string',
+  Last: 'string',
+  Date: 'string',
+  Time: 'string',
+  Change: 'string',
+  Open: 'string',
+  High: 'string',
+  Low: 'string',
+  Volume: 'string',
+  MktCap: 'string',
+  PreviousClose: 'string',
+  PercentageChange: 'string',
+  AnnRange: 'string',
+  Earns: 'string',
+  'P-E': 'string',
+  Name: 'string' }
+
+only Symbol is required

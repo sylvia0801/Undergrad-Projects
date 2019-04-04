@@ -1,0 +1,17 @@
+Future Plans
+
+
+In the future we would like to add more functionality to the app.
+
+Including:
+
+  -Adding more user questions
+
+  -Allowing users to compare different stocks
+
+  -Giving users the ability to measure their own performance as investors
+
+
+
+We would also like to make the design sleeker.
+We would redesign our app when we implement these features.

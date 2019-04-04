@@ -1,0 +1,79 @@
+html, body, .viewport {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+}
+
+h3 {
+    text-align: center;
+    color: beige;
+}
+
+.tickerLabel {
+    color: beige;
+}
+
+.welcomeLabel {
+  color: beige;
+}
+
+.loginQuizContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.loginContainer {
+    flex: 1;
+    justify-content: space-between;
+}
+
+.loginContainerLabel {
+    color: beige;
+}
+
+.loginButton {
+    margin-left: 35%;
+}
+
+.quizContainer {
+    flex: 1;
+    margin-left: 35%;
+}
+
+.questionLabel {
+    color: beige;
+}
+
+.infoLabel {
+    color: beige;
+}
+
+.tickerSubmitContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tickerInfoContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-height: 30%;
+    background-color: darkslateblue;
+}
+
+.labelTextField {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    max-width: 100%;
+}
