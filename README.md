@@ -1,5 +1,5 @@
 # Ungergrad-Projects
-This repository contains projects that are completed during my undergraduate times (2014-2015) at Boston University.
+This repository contains projects that are completed during my undergraduate times (2014-2018) at Boston University.
 
 ## Classes Taken with Projects
 CS111 Introduction to Computer Science I: Text Comparison
