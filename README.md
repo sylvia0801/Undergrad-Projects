@@ -28,7 +28,6 @@ CS460 Introduction to Database Systems: Photo Sharing System
 upload photos, write photo comments, add friends and share photos with other users
 •	Utilized MySQL for photo database management and maintained the system in Flask in 
 Python
-
 ```
 
 
@@ -40,7 +39,6 @@ University’s gas usage and electricity usage among factors such as temperature
 intensity, greenhouse gas intensity, building age and building type
 •	By analyzing models, found the factor that can use less and lessen either gas usage 
 or electricity usage in order to achieve the goal of Carbon Neutral in the future
-
 ```
 
 
@@ -52,7 +50,6 @@ point would be given
 •	Utilized neupy and sklearn libraries in Python in machine learning neural network that
 takes in several price affecting factors of real estate market and gives the output that
 is estimated through learning factors and their influences
-
 ```
 
 
@@ -70,7 +67,6 @@ onto datasets to analyze Boston’s crime reports in relation to Boston’s prop
 assessment, police district distribution and labor complaints
 •	Built a web page that shows crime points and the result of the optimization point 
 which is the safest but cheapest place to live in Boston
-
 ```
 
 
