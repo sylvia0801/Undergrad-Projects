@@ -4,10 +4,10 @@ This repository contains projects that are completed during my undergraduate tim
 ## Classes Taken with Projects
 CS111 Introduction to Computer Science I: Text Comparison
 ```
-• Built a program to test text similarity
-• Utilized Python to code and run the program that checks two distinct text and see 
+•	Built a program to test text similarity
+•	Utilized Python to code and run the program that checks two distinct text and see 
 the commonality of two
-• Used word frequency, prefix and suffix of words, and text related features in the 
+•	Used word frequency, prefix and suffix of words, and text related features in the 
 comparison
 ```
 
@@ -55,7 +55,7 @@ is estimated through learning factors and their influences
 
 CS591 Computational Game Theory: Parrondo's Paradox
 ```
-• Investigated Parrondo'x Paradox in mathematical notions and read papers to find its 
+•	Investigated Parrondo'x Paradox in mathematical notions and read papers to find its 
 relation with the computational part of Game Theory
 ```
 
